@@ -1,0 +1,811 @@
+@charset 'utf-8';
+
+@font-face {
+  font-family: 'Open Sans', sans-serif;
+  font-optical-sizing: auto;
+  font-weight: <weight>;
+  font-style: normal;
+  font-variation-settings: 'wdth' 100;
+}
+
+/* Italic: 0
+Width: 100
+Weight: 300 – 800 */
+
+@font-face {
+  font-family: 'Volkhov', serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* Regular 400 -> 기본
+Bold 700 */
+
+@font-face {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+/* poppins font-weight
+Thin 100
+ExtraLight 200
+Light 300
+Regular 400 --> 기본
+Medium 500 ---> hero 섹션의 p
+SemiBold 600 --> 섹션별 span
+Bold 700 --> hero 섹션 span
+ExtraBold 800 */
+
+:root {
+  --color-main: #fff1da;
+  --color-sub: #df6951;
+  --color-font-main: #212832;
+  --color-font-h: #14183e;
+  --color-font-p: #5e6282;
+  --color-sus: #6246e5;
+
+  --font-size-m: 1.312rem;
+  --font-size-s: 0.857em;
+  --font-size-f: 0.875rem;
+  --gap: 1rem;
+
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ---------------------header  ---------------------*/
+.wrap {
+  /* border: 1px solid red; */
+  max-width: 1160px;
+  margin: auto;
+  width: calc(100% - 2rem);
+}
+
+.wrap::before {
+  content: '';
+  display: inline-block;
+  background-image: url(../img/beige_bg.svg);
+  background-repeat: no-repeat;
+  position: absolute;
+  top: -10%;
+  left: 50%;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+section {
+  border: 1px solid black;
+  margin-top: 10rem;
+}
+
+.hd {
+  display: flex;
+  justify-content: space-between;
+}
+
+.hd > nav {
+  width: 100%;
+  /* border: 1//px solid red; */
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0;
+}
+
+.hd > nav > * {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 600;
+}
+
+h1 img {
+  padding-right: 5rem;
+  height: 34px;
+}
+.gnb {
+  display: flex;
+}
+
+.gnb::before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 0;
+  visibility: hidden;
+  top: 70px;
+}
+
+.gnb:hover::before {
+  height: 180px;
+  visibility: visible;
+}
+
+.gnb:hover .sub {
+  height: 180px;
+  visibility: visible;
+}
+
+.gnb a {
+  display: block;
+}
+
+.gnb > li {
+  /* border: 1px solid blue; */
+  position: relative;
+}
+
+.gnb > li > a {
+  /* border: 1px solid red; */
+  padding: 1rem 5rem 1rem 0.5rem;
+}
+
+.gnb > li:hover > a {
+  color: var(--color-sub);
+  cursor: pointer;
+}
+
+.sub {
+  min-width: 140px;
+  width: 100%;
+  /* display: none; */
+  position: absolute;
+  /* border: 1px solid rebeccapurple; */
+  height: 0;
+  visibility: hidden;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.sub > li:first-of-type {
+  padding-top: 30px;
+}
+
+.sub a {
+  /* border: 1px solid red; */
+  font-weight: 500;
+  transition: 0.2s;
+  padding-bottom: 0.2rem;
+  visibility: visible;
+}
+
+.sub a::before {
+  content: '';
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  position: relative;
+  /* bottom: 3px; */
+  left: 5px;
+  opacity: 0;
+}
+
+.sub a:hover,
+.person a:hover {
+  color: var(--color-sub);
+  cursor: pointer;
+}
+
+.sub1 a:hover::after {
+  content: '🏝️';
+  right: 20px;
+  opacity: 1;
+}
+.sub2 a:hover::after {
+  content: '🏨';
+  right: 20px;
+  opacity: 1;
+}
+.sub3 a:hover::after {
+  content: '✈️';
+  right: 20px;
+  opacity: 1;
+}
+.sub4 a:hover::after {
+  content: '💰';
+  right: 20px;
+  opacity: 1;
+}
+
+.person a:last-child {
+  border: 1px solid var(--color-font-main);
+  border-radius: 5px;
+  padding: 0.75rem 1.31rem;
+  /* figma에서 참고한 padding: 12px 21px을 rem 변환 */
+}
+
+.language .sub {
+  padding: 5px 5px;
+}
+
+.language .sub:hover {
+  cursor: pointer;
+}
+
+.language i {
+  transform: rotate(-90deg);
+  margin-left: 3px;
+  font-size: 13px;
+}
+
+.language i:hover {
+  cursor: pointer;
+  transform: rotate(90deg);
+}
+
+.language i li {
+  opacity: 0;
+  position: absolute;
+  visibility: hidden;
+  overflow: hidden;
+}
+
+.language i:hover li {
+  opacity: 1;
+  border: 1px solid red;
+  transition: 0.3s;
+  visibility: visible;
+}
+
+.hamburger {
+  opacity: 0;
+}
+
+@media All and (max-width: 1300px) {
+  .person {
+    display: none;
+  }
+}
+
+@media All and (max-width: 1100px) {
+  .gnb {
+    display: none;
+  }
+  .hamburger .line {
+    background-color: var(--color-font-h);
+    width: 30px;
+    height: 3px;
+    display: block;
+    margin: 7px auto;
+  }
+
+  .hamburger {
+    opacity: 1;
+    transition: 0.3s;
+  }
+  .hamburger:hover {
+    cursor: pointer;
+    transform: rotate(90deg);
+  }
+
+  .hamburger:hover .line:nth-child(2) {
+    transition: none;
+  }
+
+  .hamburger:hover .line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger:hover .line:nth-child(1),
+  .hamburger:hover .line:nth-child(3) {
+    width: 20px;
+    transform-origin: right;
+  }
+
+  .hamburger:hover .line:nth-child(1) {
+    transform: translateY(15px) rotate(45deg);
+  }
+
+  .hamburger:hover .line:nth-child(3) {
+    transform: translateY(-15px) rotate(-45deg);
+  }
+}
+
+/* ---------------------hero section ---------------------*/
+.hero {
+  border: 10px solid black;
+}
+.hero > span {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-sub);
+  line-height: 3;
+}
+
+.hero > h2 {
+  font-family: 'Volkhov', serif;
+  font-size: 84px;
+  font-weight: 900;
+  color: var(--color-font-h);
+  letter-spacing: -4px;
+  line-height: 100px;
+}
+
+.hero::before {
+  content: url(../img/Traveller.svg);
+  background-size: 783px;
+  background-position: right 90%;
+}
+
+.hero::before {
+  content: url(../img/underline.png);
+  position: absolute;
+  top: 380px;
+  left: 330px;
+  z-index: -1;
+}
+
+.hero::after {
+  content: url(../img/plane.svg);
+  position: absolute;
+  top: 15%;
+  left: 50%;
+  animation: plane1 5s ease-out 0s infinite;
+}
+
+.hero > p {
+  line-height: 30px;
+  font-weight: 500;
+  color: var(--color-font-p);
+}
+
+.hero > a:first-of-type {
+  line-height: 60px;
+  background-color: #f1a501;
+  color: white;
+  border-radius: 10px;
+  width: 170px;
+  padding: 18px;
+  box-shadow: 0 30px 20px -5px #f1ddb3;
+}
+
+.hero > a:last-of-type > i {
+  background-color: var(--color-sub);
+  border-radius: 50px;
+  width: 52px;
+  height: 52px;
+  box-shadow: 0 30px 20px -5px #e8bdb4;
+}
+
+.hero .play {
+  color: #686d77;
+  line-height: 8;
+}
+
+@keyframes plane1 {
+  0% {
+    animation-timing-function: ease-out;
+    transform: translate(0);
+  }
+
+  15% {
+    animation-timing-function: ease-in;
+    transform: translate(30px, -30px);
+  }
+
+  20% {
+    animation-timing-function: ease-out;
+    transform: translate(0);
+  }
+
+  35% {
+    animation-timing-function: ease-in;
+    transform: translate(38px, -38px);
+  }
+
+  40% {
+    animation-timing-function: ease-out;
+    transform: translateX(0);
+  }
+
+  85% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate(250px, -250px);
+  }
+}
+
+/* ---------------------Category section --------------------- */
+.services {
+  text-align: center;
+}
+
+.services::before {
+  content: url(../img/dotted_bg_up.png);
+  position: absolute;
+  right: 50px;
+}
+
+.services span {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-font-p);
+  /* border: 1px solid red; */
+}
+
+.services h2 {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Volkhov', serif;
+  margin: 2rem 0 5rem 0;
+}
+
+.offerService {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.serv {
+  border: 1px solid red;
+  height: 300px;
+  width: 229px;
+  transition: 0.3s;
+  border-radius: 40px;
+  background-color: white;
+}
+
+.serv:hover {
+  box-shadow: 0px 20px 36px 2px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+.serv:hover::after {
+  content: url(../img/Rectangle.svg);
+  position: absolute;
+  right: 170px;
+  top: 230px;
+  z-index: -1;
+  /* 빨간 사각형을 더 뒤로 보내야하는데 z-index가 안 들음. */
+}
+
+.serv img {
+  margin: auto;
+  display: block;
+}
+
+.serv span {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  color: black;
+}
+
+.serv p {
+  padding-top: 1rem;
+  line-height: 26px;
+  color: var(--color-font-p);
+}
+
+/* -------------------------Top selling section--------------------------*/
+.destinations {
+  text-align: center;
+}
+
+.destinations::before {
+  content: url(../img/spring_deco.svg);
+  position: absolute;
+  right: 10%;
+  top: ;
+}
+
+.destinations > span {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-font-p);
+}
+
+.destinations > h2 {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Volkhov', serif;
+  margin: 2rem 0 5rem 0;
+}
+
+.swiper-slide {
+  border: 1px solid red;
+  box-shadow: 0px 20px 50px 2px rgba(0, 0, 0, 0.1);
+  height: 457px;
+  position: relative;
+  right: 40px;
+}
+
+.swiper-slide > img {
+}
+
+.destinations .contents {
+  position: absolute;
+  border: 5px solid red;
+  background-color: white;
+  z-index: 1;
+}
+
+@media (max-width: 1100px;) {
+  /* 한두장으로 줄이기 - 사진들 */
+}
+
+/* -------------------------EasyandFast section --------------------------*/
+.book > span {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-font-p);
+}
+
+.book > h2 {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Volkhov', serif;
+  padding: 2rem 0;
+  line-height: 1.4;
+}
+
+.book b {
+  color: var(--color-font-p);
+  font-weight: 700;
+  padding-left: 1rem;
+}
+
+.book p {
+  color: var(--color-font-p);
+  font-size: 16px;
+  font-weight: 400;
+  padding-bottom: 3rem;
+}
+
+.book > img {
+}
+
+.book::after {
+  content: url(../img/easyandfast\ bg.png);
+  position: absolute;
+  left: 50%;
+  top: 146%;
+}
+
+.steps {
+  display: inline;
+  /* flex-wrap: wrap; */
+}
+
+/* -------------------------testimonials section --------------------------*/
+.testimonials span {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--color-font-p);
+  text-transform: uppercase;
+}
+
+.testimonials h2 {
+  font-size: 50px;
+  font-weight: 700;
+  font-family: 'Volkhov', serif;
+  padding: 2rem 0;
+  line-height: 1.4;
+}
+
+.sec {
+  border: 1px solid red;
+}
+.sec .inner {
+  width: 800px;
+  margin: auto;
+  border: 5px solid lightblue;
+}
+
+.swiper-h img {
+  border: 5px solid black;
+}
+
+.swiper-h {
+  border: 10px solid red;
+}
+
+.swiper-v {
+  border: 10px solid #999;
+  width: 400px;
+  height: 250px;
+}
+
+.sec .swiper-h {
+  border: 1px solid red;
+}
+
+.sec .swiper-h .swiper-slide {
+  border: 1px solid lightcoral;
+}
+
+.sec .swiper-h > ul > li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 2rem;
+}
+
+.sec .swiper-h .swiper {
+  margin: 0;
+}
+
+.sec .pgH {
+  width: auto;
+  top: 60%;
+  left: 2rem;
+  bottom: auto;
+}
+
+.swiper-button-next {
+  transform: rotate(90deg);
+  transform: translateY(50px), rotate(90deg);
+}
+
+.swiper-button-prev {
+  transform: rotate(90deg);
+  transform: translateY(-50px), rotate(90deg);
+}
+
+/* -------------------------flights section --------------------------*/
+.flights {
+  /* border: 1px solid red; */
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+  text-align: center;
+  border-spacing: 3rem;
+}
+
+.flights > a {
+  border: 1px solid red;
+  filter: grayscale(100%);
+  display: table-cell;
+  vertical-align: middle;
+  transition: 0.3s;
+  /* :hover했을때 a들의 height를 지금 보다 더 줄이고 싶은데 왜 height가 안 먹힐까요..? */
+}
+
+.flights > a:hover {
+  box-shadow: 0px 20px 36px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  filter: none;
+  transform: scale(1.15);
+}
+
+@media all (max-width: 1100px) {
+  /* .flights {
+    jus;
+  } */
+  /* 세로로 쌓기로 바꾸기 */
+}
+
+/* -------------------------subscribe section --------------------------*/
+
+.mw2 {
+  height: 407px;
+  background-color: #dfd7f9;
+  border-radius: 100px 10px 10px 10px;
+  text-align: center;
+  padding: 60px 0;
+}
+
+.mw::after {
+  content: url(../img/Ellipse.svg);
+  position: absolute;
+  width: 70px;
+  display: block;
+}
+
+.mw2 h3 {
+  font-size: 33px;
+  line-height: 52px;
+  font-weight: 600;
+  color: var(--color-font-p);
+}
+
+.mw2 .yourEmail {
+}
+
+.mw2 .yourEmail,
+.mw2 button {
+  display: inline-block;
+}
+.mw2 button {
+  cursor: pointer;
+  background: rgb(255, 148, 109);
+  background: linear-gradient(
+    180deg,
+    rgba(255, 148, 109, 1) 0%,
+    rgba(255, 109, 56, 1) 100%
+  );
+  border: transparent;
+  border-radius: 10px;
+  width: 180px;
+  height: 68px;
+  color: white;
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+/* -------------------------footer --------------------------*/
+.footer > * {
+  border: 1px solid red;
+}
+
+.footer {
+  margin-top: 10rem;
+}
+
+.mw3 {
+  display: flex;
+  align-items: flex-start;
+}
+
+.mw3 h3 {
+  font-size: 44px;
+}
+
+.mw3 p {
+  font-size: 13px;
+  color: var(--color-font-p);
+  display: block;
+}
+
+.mw3 > h3,
+.mw3 > p {
+  font-weight: 500;
+  display: block;
+}
+
+.mw3 b {
+  font-size: 21px;
+  font-weight: 700;
+}
+
+.mw3 ul {
+  line-height: 2;
+  border: 1px solid red;
+  padding-right: 5rem;
+  text-align: left;
+}
+
+.mw3 li {
+  font-size: 18px;
+  font-weight: 500;
+  color: var(--color-font-p);
+}
+
+.mw3 span {
+  color: var(--color-font-p);
+}
+
+.sns i {
+  padding: 15px;
+  border-radius: 50%;
+  gap: 10px;
+  box-shadow: 0px 20px 36px 2px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+}
+
+.sns i:hover {
+  background-color: #df6951;
+  color: black;
+}
+
+.footer > span {
+  border: 1px solid blue;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 2rem;
+}
+
+.outbound {
+  /* display: block; */
+}
+
+.outbound > a {
+  display: inline;
+  padding: 5px 0 5px 0;
+}
