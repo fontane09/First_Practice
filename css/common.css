@@ -549,9 +549,9 @@ h1 img {
   text-transform: uppercase;
 }
 
-.testimonials * {
+/* .testimonials * {
   border: 1px solid red;
-}
+} */
 
 .testimonials h3 {
   font-size: 50px;
