@@ -3,7 +3,6 @@
 @font-face {
   font-family: 'Open Sans', sans-serif;
   font-optical-sizing: auto;
-  font-weight: <weight>;
   font-style: normal;
   font-variation-settings: 'wdth' 100;
 }
@@ -483,13 +482,15 @@ h1 img {
 /* -------------------------Top selling section--------------------------*/
 .destinations {
   text-align: center;
+  background-color: white;
 }
 
 .destinations::before {
   content: url(../img/spring_deco.svg);
-  position: absolute;
-  right: 10%;
-  top: ;
+  position: relative;
+  right: -5%;
+  top: 60%;
+  z-index: -1;
 }
 
 .destinations > span {
@@ -513,8 +514,6 @@ h1 img {
   right: 40px;
 }
 
-.swiper-slide > img {
-}
 
 .destinations .contents {
   position: absolute;
@@ -523,7 +522,7 @@ h1 img {
   z-index: 1;
 }
 
-@media (max-width: 1100px;) {
+@media (max-width: 1100px) {
   /* 한두장으로 줄이기 - 사진들 */
 }
 
@@ -556,8 +555,6 @@ h1 img {
   padding-bottom: 3rem;
 }
 
-.book > img {
-}
 
 .book::after {
   content: url(../img/easyandfast\ bg.png);
@@ -588,9 +585,6 @@ h1 img {
   line-height: 1.4;
 }
 
-.sec {
-  border: 1px solid red;
-}
 .sec .inner {
   width: 800px;
   margin: auto;
@@ -601,23 +595,12 @@ h1 img {
   border: 5px solid black;
 }
 
-.swiper-h {
-  border: 10px solid red;
-}
-
 .swiper-v {
   border: 10px solid #999;
   width: 400px;
   height: 250px;
 }
 
-.sec .swiper-h {
-  border: 1px solid red;
-}
-
-.sec .swiper-h .swiper-slide {
-  border: 1px solid lightcoral;
-}
 
 .sec .swiper-h > ul > li {
   display: flex;
@@ -673,7 +656,7 @@ h1 img {
   transform: scale(1.15);
 }
 
-@media all (max-width: 1100px) {
+@media (max-width: 1100px) {
   /* .flights {
     jus;
   } */
@@ -688,13 +671,35 @@ h1 img {
   border-radius: 100px 10px 10px 10px;
   text-align: center;
   padding: 60px 0;
+  /* z-index: 0 */
 }
 
-.mw::after {
+.mw2::before {
   content: url(../img/Ellipse.svg);
   position: absolute;
   width: 70px;
-  display: block;
+  z-index: 1;
+  right: 0;
+  top: 357%;
+}
+
+.mw2::after {
+  content: url(../img/dotted_bg_down.png);
+  position: absolute;
+  right: 0;
+  z-index: -1;
+}
+
+.mw2 {
+  background-image: url(../img/subscribe_bg_1.svg);
+  background-repeat: no-repeat;
+  background-position: bottom 0px;
+}
+
+.mw2-1 {
+  background-image: url(../img/subscribe_bg_2.svg);
+  background-repeat: no-repeat;
+  background-position: right 0px;
 }
 
 .mw2 h3 {
@@ -702,16 +707,35 @@ h1 img {
   line-height: 52px;
   font-weight: 600;
   color: var(--color-font-p);
+  padding-bottom: 4rem;
 }
 
 .mw2 .yourEmail {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 10px;
+  color: #39425d;
+  width: 421px;
+  height: 68px;
 }
 
-.mw2 .yourEmail,
+.mw2 .yourEmail i {
+  color: #39425d;
+}
+
+.mw2 .yourEmail input {
+  border: none;
+  outline: none;
+}
+
+.inputEmail {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
 .mw2 button {
   display: inline-block;
-}
-.mw2 button {
   cursor: pointer;
   background: rgb(255, 148, 109);
   background: linear-gradient(
@@ -729,17 +753,13 @@ h1 img {
 }
 
 /* -------------------------footer --------------------------*/
-.footer > * {
-  border: 1px solid red;
-}
-
 .footer {
   margin-top: 10rem;
 }
 
 .mw3 {
   display: flex;
-  align-items: flex-start;
+  justify-content: space-between;
 }
 
 .mw3 h3 {
@@ -755,7 +775,6 @@ h1 img {
 .mw3 > h3,
 .mw3 > p {
   font-weight: 500;
-  display: block;
 }
 
 .mw3 b {
@@ -765,7 +784,7 @@ h1 img {
 
 .mw3 ul {
   line-height: 2;
-  border: 1px solid red;
+  /* border: 1px solid red; */
   padding-right: 5rem;
   text-align: left;
 }
@@ -780,12 +799,23 @@ h1 img {
   color: var(--color-font-p);
 }
 
+.outbound {
+  justify-content: center;
+}
+
+.outbound > span {
+  display: block;
+  padding: 1rem 0;
+}
+
+
 .sns i {
   padding: 15px;
   border-radius: 50%;
   gap: 10px;
   box-shadow: 0px 20px 36px 2px rgba(0, 0, 0, 0.1);
   cursor: pointer;
+  transition: 0.3s;
 }
 
 .sns i:hover {
@@ -794,18 +824,8 @@ h1 img {
 }
 
 .footer > span {
-  border: 1px solid blue;
   width: 100%;
   display: flex;
   justify-content: center;
-  margin: 2rem;
-}
-
-.outbound {
-  /* display: block; */
-}
-
-.outbound > a {
-  display: inline;
-  padding: 5px 0 5px 0;
+  margin: 5rem 0;
 }
