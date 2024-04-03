@@ -70,17 +70,17 @@ ExtraBold 800 */
   left: 50%;
   right: 0;
   bottom: 0;
-  z-index: -1;
+  z-index: -100;
 }
 
 section {
-  border: 1px solid black;
-  margin-top: 10rem;
+  margin-top: 6rem;
 }
 
 .hd {
   display: flex;
   justify-content: space-between;
+  font-size: 17px;
 }
 
 .hd > nav {
@@ -129,13 +129,11 @@ h1 img {
 }
 
 .gnb > li {
-  /* border: 1px solid blue; */
   position: relative;
 }
 
 .gnb > li > a {
-  /* border: 1px solid red; */
-  padding: 1rem 5rem 1rem 0.5rem;
+  padding: 1rem 4rem 1rem 0.3rem;
 }
 
 .gnb > li:hover > a {
@@ -148,7 +146,6 @@ h1 img {
   width: 100%;
   /* display: none; */
   position: absolute;
-  /* border: 1px solid rebeccapurple; */
   height: 0;
   visibility: hidden;
   overflow: hidden;
@@ -160,7 +157,6 @@ h1 img {
 }
 
 .sub a {
-  /* border: 1px solid red; */
   font-weight: 500;
   transition: 0.2s;
   padding-bottom: 0.2rem;
@@ -174,7 +170,6 @@ h1 img {
   height: 5px;
   border-radius: 50%;
   position: relative;
-  /* bottom: 3px; */
   left: 5px;
   opacity: 0;
 }
@@ -251,15 +246,13 @@ h1 img {
 }
 
 @media All and (max-width: 1300px) {
+  .gnb,
   .person {
     display: none;
   }
 }
 
 @media All and (max-width: 1100px) {
-  .gnb {
-    display: none;
-  }
   .hamburger .line {
     background-color: var(--color-font-h);
     width: 30px;
@@ -274,36 +267,16 @@ h1 img {
   }
   .hamburger:hover {
     cursor: pointer;
-    transform: rotate(90deg);
-  }
-
-  .hamburger:hover .line:nth-child(2) {
-    transition: none;
-  }
-
-  .hamburger:hover .line:nth-child(2) {
-    opacity: 0;
-  }
-
-  .hamburger:hover .line:nth-child(1),
-  .hamburger:hover .line:nth-child(3) {
-    width: 20px;
-    transform-origin: right;
-  }
-
-  .hamburger:hover .line:nth-child(1) {
-    transform: translateY(15px) rotate(45deg);
-  }
-
-  .hamburger:hover .line:nth-child(3) {
-    transform: translateY(-15px) rotate(-45deg);
   }
 }
 
-/* ---------------------hero section ---------------------*/
+/* ---------------------hero(mainvisual) section ---------------------*/
 .hero {
-  border: 10px solid black;
+  background: no-repeat right 100% url('../img/Traveller.svg'),
+    no-repeat right 20% url('../img/plane.svg');
+  z-index: 0;
 }
+
 .hero > span {
   font-size: 20px;
   font-weight: 700;
@@ -321,12 +294,6 @@ h1 img {
 }
 
 .hero::before {
-  content: url(../img/Traveller.svg);
-  background-size: 783px;
-  background-position: right 90%;
-}
-
-.hero::before {
   content: url(../img/underline.png);
   position: absolute;
   top: 380px;
@@ -340,25 +307,30 @@ h1 img {
   top: 15%;
   left: 50%;
   animation: plane1 5s ease-out 0s infinite;
+  z-index: -10;
 }
 
-.hero > p {
+/* 비행기 이미지가 두개라 가상요소를 두번 써야하는데 이럴땐 어떻게 해야할까요?
+::after를 두번쓰면 나중에 입력한것만 인식되는데... */
+
+.hero p {
   line-height: 30px;
   font-weight: 500;
   color: var(--color-font-p);
 }
 
-.hero > a:first-of-type {
-  line-height: 60px;
+.hero a:first-of-type {
   background-color: #f1a501;
   color: white;
   border-radius: 10px;
   width: 170px;
-  padding: 18px;
+  height: 60px;
+  padding: 1rem;
   box-shadow: 0 30px 20px -5px #f1ddb3;
+  font-size: 18px;
 }
 
-.hero > a:last-of-type > i {
+.hero .play i {
   background-color: var(--color-sub);
   border-radius: 50px;
   width: 52px;
@@ -366,7 +338,12 @@ h1 img {
   box-shadow: 0 30px 20px -5px #e8bdb4;
 }
 
-.hero .play {
+.hero > div {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+.hero > div > span {
   color: #686d77;
   line-height: 8;
 }
@@ -439,7 +416,6 @@ h1 img {
 }
 
 .serv {
-  border: 1px solid red;
   height: 300px;
   width: 229px;
   transition: 0.3s;
@@ -457,8 +433,8 @@ h1 img {
   position: absolute;
   right: 170px;
   top: 230px;
-  z-index: -1;
-  /* 빨간 사각형을 더 뒤로 보내야하는데 z-index가 안 들음. */
+  z-index: -10;
+  /* 빨간 사각형을 더 뒤로 보내야하는데 z-index가 안 통하네요. */
 }
 
 .serv img {
@@ -487,9 +463,9 @@ h1 img {
 
 .destinations::before {
   content: url(../img/spring_deco.svg);
-  position: relative;
-  right: -5%;
-  top: 60%;
+  position: absolute;
+  left: 90;
+  top: 110%;
   z-index: -1;
 }
 
@@ -507,17 +483,15 @@ h1 img {
 }
 
 .swiper-slide {
-  border: 1px solid red;
   box-shadow: 0px 20px 50px 2px rgba(0, 0, 0, 0.1);
   height: 457px;
   position: relative;
   right: 40px;
+  z-index: 0;
 }
-
 
 .destinations .contents {
   position: absolute;
-  border: 5px solid red;
   background-color: white;
   z-index: 1;
 }
@@ -527,14 +501,19 @@ h1 img {
 }
 
 /* -------------------------EasyandFast section --------------------------*/
-.book > span {
+.book {
+  display: flex;
+  align-items: center;
+}
+
+.book span {
   text-align: center;
   font-size: 18px;
   font-weight: 600;
   color: var(--color-font-p);
 }
 
-.book > h2 {
+.book h2 {
   font-size: 50px;
   font-weight: 700;
   font-family: 'Volkhov', serif;
@@ -545,7 +524,7 @@ h1 img {
 .book b {
   color: var(--color-font-p);
   font-weight: 700;
-  padding-left: 1rem;
+  line-height: 2;
 }
 
 .book p {
@@ -555,21 +534,14 @@ h1 img {
   padding-bottom: 3rem;
 }
 
-
-.book::after {
-  content: url(../img/easyandfast\ bg.png);
-  position: absolute;
-  left: 50%;
-  top: 146%;
-}
-
 .steps {
-  display: inline;
-  /* flex-wrap: wrap; */
+  display: flex;
+
+  gap: 1rem;
 }
 
 /* -------------------------testimonials section --------------------------*/
-.testimonials span {
+.testimonials > span {
   text-align: center;
   font-size: 18px;
   font-weight: 600;
@@ -577,7 +549,7 @@ h1 img {
   text-transform: uppercase;
 }
 
-.testimonials h2 {
+.testimonials h3 {
   font-size: 50px;
   font-weight: 700;
   font-family: 'Volkhov', serif;
@@ -588,11 +560,32 @@ h1 img {
 .sec .inner {
   width: 800px;
   margin: auto;
-  border: 5px solid lightblue;
 }
 
-.swiper-h img {
-  border: 5px solid black;
+.swiper-slide {
+  display: block;
+}
+
+.swiper-slide > p {
+  font-weight: 500;
+  color: var(--color-font-p);
+  line-height: 1.4;
+}
+
+.swiper-slide > em {
+  font-weight: 600;
+  color: var(--color-font-p);
+}
+.swiper-slide > span {
+  font-weight: 500;
+  color: var(--color-font-p);
+}
+
+.swiper-slide > img {
+  border-radius: 50px;
+  border: transparent;
+  top: -30px;
+  display: absolute;
 }
 
 .swiper-v {
@@ -601,6 +594,9 @@ h1 img {
   height: 250px;
 }
 
+.swiper-v v1 {
+  display: flex;
+}
 
 .sec .swiper-h > ul > li {
   display: flex;
@@ -632,7 +628,6 @@ h1 img {
 
 /* -------------------------flights section --------------------------*/
 .flights {
-  /* border: 1px solid red; */
   width: 100%;
   display: table;
   table-layout: fixed;
@@ -641,12 +636,10 @@ h1 img {
 }
 
 .flights > a {
-  border: 1px solid red;
   filter: grayscale(100%);
   display: table-cell;
   vertical-align: middle;
   transition: 0.3s;
-  /* :hover했을때 a들의 height를 지금 보다 더 줄이고 싶은데 왜 height가 안 먹힐까요..? */
 }
 
 .flights > a:hover {
@@ -654,16 +647,14 @@ h1 img {
   border-radius: 20px;
   filter: none;
   transform: scale(1.15);
-}
-
-@media (max-width: 1100px) {
-  /* .flights {
-    jus;
-  } */
-  /* 세로로 쌓기로 바꾸기 */
+  /* hover하면 나오는 하얀 배경의 height를 줄이고 싶습니다! */
 }
 
 /* -------------------------subscribe section --------------------------*/
+.subscribe {
+  background: no-repeat bottom url('../img/subscribe_bg_1.svg'),
+    no-repeat right url('../img/subscribe_bg_2.svg');
+}
 
 .mw2 {
   height: 407px;
@@ -690,18 +681,6 @@ h1 img {
   z-index: -1;
 }
 
-.mw2 {
-  background-image: url(../img/subscribe_bg_1.svg);
-  background-repeat: no-repeat;
-  background-position: bottom 0px;
-}
-
-.mw2-1 {
-  background-image: url(../img/subscribe_bg_2.svg);
-  background-repeat: no-repeat;
-  background-position: right 0px;
-}
-
 .mw2 h3 {
   font-size: 33px;
   line-height: 52px;
@@ -717,14 +696,13 @@ h1 img {
   color: #39425d;
   width: 421px;
   height: 68px;
-}
-
-.mw2 .yourEmail i {
-  color: #39425d;
+  vertical-align: middle;
 }
 
 .mw2 .yourEmail input {
   border: none;
+  width: 90%;
+  height: 100%;
   outline: none;
 }
 
@@ -764,6 +742,7 @@ h1 img {
 
 .mw3 h3 {
   font-size: 44px;
+  padding-bottom: 1rem;
 }
 
 .mw3 p {
@@ -784,8 +763,6 @@ h1 img {
 
 .mw3 ul {
   line-height: 2;
-  /* border: 1px solid red; */
-  padding-right: 5rem;
   text-align: left;
 }
 
@@ -807,7 +784,6 @@ h1 img {
   display: block;
   padding: 1rem 0;
 }
-
 
 .sns i {
   padding: 15px;
