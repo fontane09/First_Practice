@@ -275,7 +275,6 @@ h1 img {
   background: no-repeat right 100% url('../img/Traveller.svg'),
     no-repeat right 20% url('../img/plane.svg');
   z-index: 0;
-
 }
 
 .hero > span {
@@ -537,10 +536,24 @@ h1 img {
 
 .steps {
   display: flex;
-
   gap: 1rem;
 }
 
+.book img:last-child {
+  animation: ani2 5s infinite;
+}
+
+@keyframes ani2 {
+  0% {
+    transform: scale(0.8);
+  }
+  50% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(0.8);
+  }
+}
 /* -------------------------testimonials section --------------------------*/
 .testimonials > span {
   text-align: center;
@@ -688,7 +701,7 @@ h1 img {
 }
 
 .mw2 h3 {
-  font-size: 33px;
+  font-size: 2.063rem;
   line-height: 52px;
   font-weight: 600;
   color: var(--color-font-p);
@@ -824,11 +837,3 @@ h1 img {
   justify-content: center;
   margin: 5rem 0;
 }
-
-
-
-
-
-/*1. 한 섹션에 여러 개의 가상요소 이미지를 넣을때 어떻게 해야할까요? 
- 2. 가상 요소 위치 고정시키려면 어떻게 하나요? 
- 3. */

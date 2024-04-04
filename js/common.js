@@ -1,6 +1,13 @@
 let swiper = new Swiper('.mySwiper', {
   slidesPerView: 3,
   spaceBetween: 30,
+  loop: true,
+  autoplay: {
+    delay: 0,
+    pauseOnMouseEnter: true,
+    disableOnInteraction: false,
+  },
+  speed: 3000,
   pagination: {
     el: '.swiper-pagination',
     clickable: true,
