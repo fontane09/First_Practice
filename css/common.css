@@ -275,6 +275,7 @@ h1 img {
   background: no-repeat right 100% url('../img/Traveller.svg'),
     no-repeat right 20% url('../img/plane.svg');
   z-index: 0;
+
 }
 
 .hero > span {
@@ -461,13 +462,13 @@ h1 img {
   background-color: white;
 }
 
-.destinations::before {
+/* .destinations::before {
   content: url(../img/spring_deco.svg);
   position: absolute;
   left: 90;
   top: 110%;
   z-index: -1;
-}
+} */
 
 .destinations > span {
   font-size: 18px;
@@ -823,3 +824,11 @@ h1 img {
   justify-content: center;
   margin: 5rem 0;
 }
+
+
+
+
+
+/*1. 한 섹션에 여러 개의 가상요소 이미지를 넣을때 어떻게 해야할까요? 
+ 2. 가상 요소 위치 고정시키려면 어떻게 하나요? 
+ 3. */
