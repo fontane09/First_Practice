@@ -85,11 +85,10 @@ section {
 
 .hd > nav {
   width: 100%;
-  /* border: 1//px solid red; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 16px 0;
+  padding: 8px 0 50px 0;
 }
 
 .hd > nav > * {
@@ -274,7 +273,10 @@ h1 img {
 .hero {
   background: no-repeat right 100% url('../img/Traveller.svg'),
     no-repeat right 20% url('../img/plane.svg');
-  z-index: 0;
+  /* 이 비행기에도 움직이는 애니메이션 주고 싶었는데 
+    여자모델 사진(traveller.svg)랑 같이 묶여있다보니
+    어떻게 따로 적용을 해야할지 모르겠습니다. */
+  z-index: 1;
 }
 
 .hero > span {
@@ -296,8 +298,8 @@ h1 img {
 .hero::before {
   content: url(../img/underline.png);
   position: absolute;
-  top: 380px;
-  left: 330px;
+  top: 26%;
+  left: 29%;
   z-index: -1;
 }
 
@@ -310,8 +312,8 @@ h1 img {
   z-index: -10;
 }
 
-/* 비행기 이미지가 두개라 가상요소를 두번 써야하는데 이럴땐 어떻게 해야할까요?
-::after를 두번쓰면 나중에 입력한것만 인식되는데... */
+/* 여러 이미지를 배경에 넣고 싶어서 가상요소를 여러번 써야할땐 어떻게 해야할까요?
+::after를 여러번 쓰면 가장 밑에 입력한것만 실행되는데 말이죠. */
 
 .hero p {
   line-height: 30px;
@@ -433,8 +435,8 @@ h1 img {
   position: absolute;
   right: 170px;
   top: 230px;
-  z-index: -10;
-  /* 빨간 사각형을 더 뒤로 보내야하는데 z-index가 안 통하네요. */
+  z-index: -10 !important;
+  /* 빨간 사각형을 hover된 하얀 부분보다 뒤로 보내야하는데 z-index가 안 통합니다. */
 }
 
 .serv img {
@@ -666,7 +668,7 @@ h1 img {
   border-radius: 20px;
   filter: none;
   transform: scale(1.15);
-  /* hover하면 나오는 하얀 배경의 height를 줄이고 싶습니다! */
+  /* 비행사 로고 hover하면 나오는 하얀 뒷 배경 height를 로고에 딱 맞게 줄이고 싶은데 말이죠 ㅠ */
 }
 
 /* -------------------------subscribe section --------------------------*/
@@ -689,8 +691,8 @@ h1 img {
   position: absolute;
   width: 70px;
   z-index: 1;
-  right: 0;
-  top: 357%;
+  right: 17rem;
+  top: 307vh;
 }
 
 .mw2::after {
@@ -701,7 +703,7 @@ h1 img {
 }
 
 .mw2 h3 {
-  font-size: 2.063rem;
+  font-size: 2.063em;
   line-height: 52px;
   font-weight: 600;
   color: var(--color-font-p);
@@ -804,13 +806,18 @@ h1 img {
   padding: 1rem 0;
 }
 
+.sns {
+  display: flex;
+  justify-content: space-between;
+  width: 80%;
+}
+
 .sns i {
   padding: 15px;
   border-radius: 50%;
-  gap: 10px;
   box-shadow: 0px 20px 36px 2px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  transition: 0.3s;
+  transition: 0.2s;
 }
 
 .sns i:hover {
@@ -836,4 +843,10 @@ h1 img {
   display: flex;
   justify-content: center;
   margin: 5rem 0;
+}
+
+@media (max-width: 1100px) {
+  .footer {
+    flex-direction: column;
+  }
 }
